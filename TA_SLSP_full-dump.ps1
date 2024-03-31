@@ -69,7 +69,7 @@ $nameX=(irm https://api.slsp.sk/ta-accounts/api/accounts/$ibb | Select-Object na
 #ibanToName
 
 $full=""
-$full=$nameX + "|" + $to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + $to.amount.value + "|" + $o.amount.currency + "|" + $to.note + "|" + $to.description
+$full=$nameX + "|" + $to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + $to.amount.value + "|" + $to.amount.currency + "|" + $to.note + "|" + $to.description
 
 Out-File -FilePath $llff -InputObject $full -Width 99999 -Append
 
