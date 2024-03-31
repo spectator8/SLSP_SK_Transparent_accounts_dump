@@ -1,4 +1,4 @@
-﻿#acc get
+#acc get
 
 $llf="fakepath\acc_list.txt"
 Clear-Content $llf
@@ -61,15 +61,9 @@ foreach ($to in $fxres.turnovers)
 
 {
 
-#ibanToName
-$ibb=""
-$ibb=$to.accountIban
-$nameX=""
-$nameX=(irm https://api.slsp.sk/ta-accounts/api/accounts/$ibb | Select-Object name).name
-#ibanToName
 
 $full=""
-$full=$nameX + "|" + $to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + $to.amount.value + "|" + $to.amount.currency + "|" + $to.note + "|" + $to.description
+$full=$to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + $to.amount.value + "|" + $to.amount.currency + "|" + $to.note + "|" + $to.description
 
 Out-File -FilePath $llff -InputObject $full -Width 99999 -Append
 
