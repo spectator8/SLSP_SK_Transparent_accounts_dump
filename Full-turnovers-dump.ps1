@@ -20,7 +20,7 @@ foreach ( $rr in $accGetRes.accounts)
 {
 
 $rrx=""
-$rrx=$rr.name + "|" + $rr.created + "|" + $rr.iban +"|" + $rr.balance.value + "|" +  $rr.balance.currency
+$rrx=$rr.name + "|" + $rr.created + "|" + $rr.iban +"|" + ($rr.balance.value)/100 + "|" +  $rr.balance.currency
 
 
 Out-File -FilePath $llf -InputObject $rrx -Width 99999 -Append
@@ -71,7 +71,7 @@ foreach ($to in $fxres.turnovers)
 
 
 $full=""
-$full=$nameX + "|" + $to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + $to.amount.value + "|" + $to.amount.currency + "|" + $to.note + "|" + $to.description
+$full=$nameX + "|" + $to.accountIban + "|" + $to.turnoverId + "|" + $to.counterAccountName + "|" + $to.date + "|" + ($to.amount.value)100 + "|" + $to.amount.currency + "|" + $to.note + "|" + $to.description
 
 Out-File -FilePath $llff -InputObject $full -Width 99999 -Append
 
